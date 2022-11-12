@@ -10,9 +10,11 @@ function App() {
         fetch('/products')
         .then((r) => r.json())
         .then(setProducts);
-        console.log(products)
+        
     }, []);
 
+    console.log(products)
+    
   return (
       <Router>
         <Routes>
