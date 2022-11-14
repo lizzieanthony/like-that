@@ -33,3 +33,14 @@ div.productpreview img {
 .productpreview:hover {
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
+
+.productdetails {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.productimage img {
+  float: left;
+
+}
