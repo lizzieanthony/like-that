@@ -1,4 +1,4 @@
-// import {Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 const ProductList = ({products}) => {
@@ -8,7 +8,13 @@ const ProductList = ({products}) => {
        <h2>
         {products.map((product) => (
             <div className="productpreview" key={product.id}>
+            <Link to={`/products/${product.id}`}>
+                <img src={product.image_url} />
+                <br/>
+                <br/>
                 <h2>{product.name}</h2>
+                <p>${product.price}</p>
+                </Link>
             </div>
         ))}
        </h2>

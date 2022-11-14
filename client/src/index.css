@@ -1,13 +1,35 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Sono', sans-serif;
+  color: #333;
+  text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.productpreview {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  float: left;
+  width: 220px;
+  height: 380px;
+  font-size: 14px;
+  position:relative;
+
+}
+
+div.productpreview p {
+  position:absolute;
+  bottom:0;
+}
+
+div.productpreview img {
+  width: 200px;
+  height: 200px;
+}
+
+.productpreview:hover {
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
