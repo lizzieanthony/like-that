@@ -9,7 +9,7 @@ const ProductList = ({products}) => {
         {products.map((product) => (
             <div className="productpreview" key={product.id}>
             <Link to={`/products/${product.id}`}>
-                <img src={product.image_url} />
+                <img src={product.image_url} alt="product"/> 
                 <br/>
                 <br/>
                 <h2>{product.name}</h2>
