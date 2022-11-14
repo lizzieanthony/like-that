@@ -10,14 +10,15 @@ class ProductsController < ApplicationController
         render json: product
     end
 
-#     def create 
-#         product = Product.create!(product_params)
-#         render json: product. status: :created 
-#     end
+    def create
+         
+        product = Product.create(product_params)
+        render json: product, status: :created 
+    end
 
-#     private
+    private
 
-#    def  product_params
-#     params.permit(:name, :description, :price, :category, :image_url)
-#    end
+   def  product_params
+    params.permit(:name, :description, :price, :image_url)
+   end
 end
