@@ -5,7 +5,7 @@ const ProductList = ({products}) => {
     
 
     return (  
-       <h2>
+       <div>
         {products.map((product) => (
             <div className="productpreview" key={product.id}>
             <Link to={`/products/${product.id}`}>
@@ -17,7 +17,7 @@ const ProductList = ({products}) => {
                 </Link>
             </div>
         ))}
-       </h2>
+       </div>
     );
 }
  

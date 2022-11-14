@@ -44,3 +44,17 @@ div.productpreview img {
   float: left;
 
 }
+
+.navbar {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+  opacity: .6;
+  display: flex;
+}
+
+.links {
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: auto;}
