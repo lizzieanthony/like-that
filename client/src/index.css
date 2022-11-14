@@ -46,15 +46,19 @@ div.productpreview img {
 }
 
 .navbar {
-  margin: auto;
-  text-align: center;
-  width: 100%;
-  padding: 10px;
+  font-size: 22px;
+  margin: 0;
+  align-items: center;
+  padding: 0;
+  width:98%;
   opacity: .6;
   display: flex;
+  list-style-type: none;
 }
 
 .links {
-  font-size: 25px;
-  margin-top: 20px;
-  margin-left: auto;}
+  
+  font-size: 18px;
+  margin-top: 0px;
+  margin-left: auto;
+}

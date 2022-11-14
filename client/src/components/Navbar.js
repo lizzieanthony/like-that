@@ -5,8 +5,8 @@ const Navbar = () => {
         <nav className="navbar">
         <h1>Like That</h1>
         <div className="links">
-            <div>login</div>
-            <div>signup</div>
+            <ul>login</ul>
+            <ul>signup</ul>
         </div>
        
         </nav>
