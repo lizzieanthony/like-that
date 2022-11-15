@@ -57,8 +57,20 @@ div.productpreview img {
 }
 
 .links {
-  
   font-size: 18px;
   margin-top: 0px;
   margin-left: auto;
+}
+
+.productimage {
+  width: 400px;
+  height: 400px;
+  float: left;
+  padding: 40px
+}
+
+.productDetails {
+  padding: 40px;
+  width: 80%;
+  /* box-sizing: border-box;  */
 }
