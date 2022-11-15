@@ -10,6 +10,8 @@ const Product = ({product}) => {
             <h3>{product.description}</h3>
             <br />
             <h4>{product.price}</h4>
+            <br />
+            <p>{product.link}Shop</p>
             </div>
         </ul>
         

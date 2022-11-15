@@ -66,11 +66,18 @@ div.productpreview img {
   width: 400px;
   height: 400px;
   float: left;
-  padding: 40px
+  padding: 40px;
 }
 
 .productDetails {
+  float: right;
+  margin: 10px;
   padding: 40px;
-  width: 80%;
-  /* box-sizing: border-box;  */
+  width: 50%;
+  box-sizing: border-box; 
+}
+
+.productDetails p {
+  color: #718b61;
+  font-size: 18px;
 }
