@@ -63,17 +63,17 @@ div.productpreview img {
 }
 
 .productimage {
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   float: left;
-  padding: 40px;
+  padding: 20px;
 }
 
 .productDetails {
   float: right;
   margin: 10px;
   padding: 40px;
-  width: 50%;
+  width: 500px;
   box-sizing: border-box; 
 }
 
