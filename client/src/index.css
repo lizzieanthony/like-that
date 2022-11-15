@@ -56,7 +56,12 @@ div.productpreview img {
   list-style-type: none;
 }
 
-.links {
+.navheader {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navlinks {
   font-size: 18px;
   margin-top: 0px;
   margin-left: auto;
@@ -80,4 +85,7 @@ div.productpreview img {
 .productDetails p {
   color: #718b61;
   font-size: 18px;
+}
+
+.newReview {
 }

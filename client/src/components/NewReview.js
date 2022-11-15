@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const NewReview = ({product}) => {
     const [content, setContent] = useState("")
     return ( 
-      <div>
+      <div className='newReview'>
         <h1>Reviews for {product.name}</h1>
           <form>
           <div>
