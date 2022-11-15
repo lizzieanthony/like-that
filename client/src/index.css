@@ -88,4 +88,5 @@ div.productpreview img {
 }
 
 .newReview {
+  clear: left;
 }
