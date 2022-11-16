@@ -50,9 +50,11 @@ function handleSubmit(e) {
         />
         <button>Login</button>
       </form>
-        <br />
         <h2>Don't have an account?</h2>
+        <button>
         <Link to="/signup"> Sign Up</Link>
+        </button>
+        
         </div>
      );
 }

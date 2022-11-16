@@ -90,3 +90,41 @@ div.productpreview img {
 .newReview {
   clear: left;
 }
+
+.new {
+  max-width: 300px;
+  margin: 150px auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f6eeee;
+  border-radius: 6%;
+}
+
+.new label {
+  text-align: left;
+  display: block;
+}
+.new h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin: 10px;
+}
+.new input, .new textarea {
+  font-size: 16px;
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  background-color: #f6eeee;
+  color: #f1356d;
+}
+.new button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
