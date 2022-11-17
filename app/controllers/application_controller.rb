@@ -6,6 +6,10 @@ class ApplicationController < ActionController::API
 
   # before_action :authorize (onll for review)
 
+  def current_user
+    User.find_by(username: params[:username])
+  end
+
   private 
 
   # def authorize
