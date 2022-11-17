@@ -26,7 +26,7 @@ function App() {
 
   return (
       <Router>
-      <Navbar />
+      <Navbar user={user} />
         <Routes>
           <Route path="/" element={<ProductList products={products} />} /> 
           <Route path="products/:id" element={<ProductDetails products={products}/>} />

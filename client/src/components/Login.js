@@ -41,7 +41,7 @@ function handleSubmit(e) {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-       <label>Username:</label>
+       <label>Password:</label>
         <input
           type="text"
           required
