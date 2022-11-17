@@ -18,11 +18,20 @@ function App() {
         
     }, []);
 
+    useEffect(() => {
+      fetch('/me').then((r) => {
+        if (r.ok) {
+          r.json().then((user) => setUser(user));
+        }
+      });
+    }, []);
+
     console.log(products)
 
     const onNewUser = (newUser) => {
       setUser([...user, newUser])
     }
+    
 
   return (
       <Router>

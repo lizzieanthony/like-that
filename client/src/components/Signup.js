@@ -4,7 +4,7 @@ import React, {useState} from 'react';
 const Signup = ({onNewUser}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("")
+    const [first_name, setFirst_name] = useState("")
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate()
 
@@ -16,9 +16,7 @@ const Signup = ({onNewUser}) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                username, password, first_name: firstName 
-            }),
+            body: JSON.stringify({username, password, first_name: first_name}),
         }).then((r) => {
             if (r.ok) {
                 r.json().then((user) => onNewUser(user))
@@ -50,9 +48,12 @@ const Signup = ({onNewUser}) => {
          <input
            type="text"
            required
-           value={firstName}
-           onChange={(e) => setFirstName(e.target.value)}
+           value={first_name}
+           onChange={(e) => setFirst_name(e.target.value)}
          />
+         {errors.map((err) => (
+            <p key={err}>{err}</p>
+          ))}
         </form>
         <button>
         <Link to="/"> Create Account</Link>
