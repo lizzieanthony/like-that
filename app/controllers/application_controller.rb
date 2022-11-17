@@ -7,8 +7,13 @@ class ApplicationController < ActionController::API
   # before_action :authorize (onll for review)
 
   def current_user
-    User.find_by(username: params[:username])
+    User.find_by(id: session[:user_id])
   end
+
+  def login_user
+    session[:user_id] = user.id
+  end
+
 
   private 
 
