@@ -5,14 +5,13 @@ import {Link, useNavigate} from "react-router-dom";
 const Login = ({ setUser}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [firstName, setFirstName] = useState("")
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
 
 function handleSubmit(e) {
     e.preventDefault()
-    const user = {username: username, password: password, firstName: firstName}
+    const user = {username: username, password: password}
     fetch("/login", {
         method: "POST", 
         headers: {
@@ -49,6 +48,9 @@ function handleSubmit(e) {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button>Login</button>
+        {errors.map((err) => (
+            <p key={err}>{err}</p>
+          ))}
       </form>
         <h2>Don't have an account?</h2>
         <button>

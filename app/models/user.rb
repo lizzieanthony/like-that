@@ -5,6 +5,5 @@ class User < ApplicationRecord
     has_many :products, through: :reviews
 
     validates :username, presence: true, uniqueness: true
-    validates :password, presence: true
 
 end
