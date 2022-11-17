@@ -43,7 +43,7 @@ const Signup = ({onNewUser}) => {
            type="text"
            required
            value={password}
-           onChange={(e) => setUsername(e.target.value)}
+           onChange={(e) => setPassword(e.target.value)}
          />
 
          <label>First Name::</label>
@@ -51,7 +51,7 @@ const Signup = ({onNewUser}) => {
            type="text"
            required
            value={firstName}
-           onChange={(e) => setUsername(e.target.value)}
+           onChange={(e) => setFirstName(e.target.value)}
          />
         </form>
         <button>

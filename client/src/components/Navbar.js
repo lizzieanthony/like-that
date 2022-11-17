@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({user}) => {
+const Navbar = ({user, setUser}) => {
+
+    function handleLogoutClick() {
+        fetch("/logout", {method: "DELETE"}).then((r) => {
+            if (r.ok) {
+             setUser(null)   
+            }
+        })
+    }
+
     return (  
         <div className="navbar">
         <Link to="/" className="navheader">Like That</Link>
@@ -9,9 +18,12 @@ const Navbar = ({user}) => {
         {!user ? (
             <Link to="/login">Start Reviewing</Link>
         ) : (
-            <h1>welcome {user.first_name}</h1>
+            <div>
+            <h1>welcome {user.username}</h1>
+            <button onClick={handleLogoutClick}>Logout</button>
+            </div>
         )}
-           
+        
         </div>
        
         </div>
