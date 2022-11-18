@@ -11,19 +11,19 @@ function App() {
   const [products, setProducts] = useState([])
   const [user, setUser] = useState(null)
     
+  useEffect(() => {
+    fetch('/me').then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
     useEffect(() => {
         fetch('/products')
         .then((r) => r.json())
         .then(setProducts);
         
-    }, []);
-
-    useEffect(() => {
-      fetch('/me').then((r) => {
-        if (r.ok) {
-          r.json().then((user) => setUser(user));
-        }
-      });
     }, []);
 
     console.log(products)
@@ -32,6 +32,7 @@ function App() {
       setUser([...user, newUser])
     }
     
+    // if (!user) return <Login setUser={setUser} />;
 
   return (
       <Router>
