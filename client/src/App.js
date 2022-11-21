@@ -22,7 +22,7 @@ function App() {
     useEffect(() => {
         fetch('/products')
         .then((r) => r.json())
-        .then(setProducts);
+        .then(products => setProducts(products));
         
     }, []);
 
