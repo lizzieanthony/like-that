@@ -5,11 +5,12 @@ class ReviewsController < ApplicationController
             product = Product.find(params[:product_id])
             reviews = product.reviews
             render json: reviews
-        elsif params[user_id]
-            user = User.find(params[user_id])
+        elsif params[:user_id]
+            user = User.find(params[:user_id])
             reviews = user.reviews
             render json: reviews 
         end
+    end
 
     def create 
         review = current_user.reviews.create!(review_params)
@@ -33,4 +34,5 @@ class ReviewsController < ApplicationController
     def review_params
         params.permit(:title, :review, :rating, :user_id, :product_id)
     end
+
 end

@@ -11,6 +11,7 @@ const Signup = ({onNewUser}) => {
 
     function handleSubmit(event)  {
         event.preventDefault();
+        // debugger
         fetch("/signup", {
             method: "POST",
             headers: {
@@ -54,13 +55,19 @@ const Signup = ({onNewUser}) => {
          {errors.map((err) => (
             <p key={err}>{err}</p>
           ))}
+          
+        <input type="submit" value="Submit" />
         </form>
-        <button>
-        <Link to="/"> Create Account</Link>
-        </button>
+    
       </div>
       
      );
 }
+
+// <button>
+//         <Link to="/"> Create Account</Link>
+//         </button>
+
+// input tag type submit 
  
 export default Signup;

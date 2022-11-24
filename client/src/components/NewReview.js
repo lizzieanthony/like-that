@@ -4,6 +4,7 @@ const NewReview = ({product}) => {
     const [content, setContent] = useState("")
     return ( 
       <div className='newReview'>
+      <br />
         <h1>Reviews for {product.name}</h1>
           <form>
           <div>
