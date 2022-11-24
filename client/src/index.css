@@ -128,3 +128,12 @@ div.productpreview img {
   border-radius: 8px;
   cursor: pointer;
 }
+
+.input .newButton {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Product from "./Product";
 import NewReview from "./NewReview"
+import ListedReviews from "./ListedReviews";
 
 const ProductDetails = () => {
 
@@ -30,6 +31,7 @@ const [reviews, setReviews] = useState([])
         <div>
         <Product product={currentProduct} />
         <NewReview product={currentProduct} />
+        <ListedReviews product={currentProduct} />       
         </div>
     );
 }

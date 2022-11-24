@@ -45,7 +45,7 @@ const Signup = ({onNewUser}) => {
            onChange={(e) => setPassword(e.target.value)}
          />
 
-         <label>First Name::</label>
+         <label>First Name:</label>
          <input
            type="text"
            required
@@ -55,19 +55,12 @@ const Signup = ({onNewUser}) => {
          {errors.map((err) => (
             <p key={err}>{err}</p>
           ))}
-          
-        <input type="submit" value="Submit" />
+        <input className="newButton" type="submit" value="Submit" />
         </form>
     
       </div>
       
      );
 }
-
-// <button>
-//         <Link to="/"> Create Account</Link>
-//         </button>
-
-// input tag type submit 
  
 export default Signup;
