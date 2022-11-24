@@ -29,7 +29,7 @@ function App() {
     console.log(products)
 
     const onNewUser = (newUser) => {
-      setUser([...user, newUser])
+      setUser(newUser)
     }
     
     // if (!user) return <Login setUser={setUser} />;
