@@ -9,6 +9,7 @@ const ProductDetails = () => {
 const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState("");
 const [reviews, setReviews] = useState([])
+const [user, setUser] = useState({});
 
     useEffect(() => {
         fetch(`/products/${id}`)
@@ -19,6 +20,8 @@ const [reviews, setReviews] = useState([])
         loadReviews();
     }, [id])
 
+    console.log(currentProduct)
+
     const loadReviews = () => {
         fetch(`/products/${id}/reviews`)
         .then((r) => r.json())
@@ -27,11 +30,17 @@ const [reviews, setReviews] = useState([])
         })
     }
 
+    const addReview = (review) => {
+        setReviews([...reviews, review])
+      }
+
     return (  
         <div>
         <Product product={currentProduct} />
-        <NewReview product={currentProduct} />
-        <ListedReviews product={currentProduct} />       
+        <br />
+        <NewReview product={currentProduct} addReview={addReview} user={user} />
+        <br />
+        <ListedReviews reviews={reviews} />       
         </div>
     );
 }

@@ -5,7 +5,8 @@ const NewReview = ({product}) => {
     return ( 
       <div className='newReview'>
       <br />
-        <h1>Reviews for {product.name}</h1>
+        <h3>User Reviews: </h3>
+        <br />
           <form>
           <div>
             <label htmlFor="content">Content:</label>

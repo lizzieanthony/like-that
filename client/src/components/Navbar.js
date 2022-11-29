@@ -19,7 +19,7 @@ const Navbar = ({user, setUser}) => {
             <Link to="/login">Start Reviewing</Link>
         ) : (
             <div>
-            <h1>Welcome {user.username}</h1>
+            <h1>Welcome {user.first_name}!</h1>
             <button onClick={handleLogoutClick}>Logout</button>
             </div>
         )}
