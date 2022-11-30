@@ -9,6 +9,9 @@ class ReviewsController < ApplicationController
             user = User.find(params[:user_id])
             reviews = user.reviews
             render json: reviews 
+        else 
+            reviews = Review.all 
+            render json: reviews
         end
     end
 

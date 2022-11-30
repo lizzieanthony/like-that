@@ -32,8 +32,6 @@ function App() {
       setUser(newUser)
     }
     
-    // if (!user) return <Login setUser={setUser} />;
-
   return (
       <Router>
       <Navbar user={user} setUser={setUser} />

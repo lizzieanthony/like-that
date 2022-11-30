@@ -7,7 +7,7 @@ const ListedReviews = ({reviews}) => {
         { review.review }
         <br />
         <br />
-        by: {review.user.username}
+        by: {review.user.username} {review.date}
         </ul>)
 
     return ( 
