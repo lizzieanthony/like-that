@@ -89,6 +89,13 @@ div.productpreview img {
 
 .newReview {
   clear: left;
+  padding: 10px 16px;
+  margin: 40px ;
+  max-width: 450px;
+}
+
+.newReview input {
+  float: right;
 }
 
 .new {
@@ -136,4 +143,14 @@ div.productpreview img {
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+}
+
+.listedReview {
+  padding: 10px 16px;
+  margin: 20px ;
+  border-top: 5px solid black;
+  border-top-width: thin;
+  border-bottom: 5px solid black;
+  border-bottom-width: thin;
+  max-width: 450px;
 }

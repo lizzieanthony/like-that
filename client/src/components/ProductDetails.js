@@ -39,7 +39,6 @@ const [user, setUser] = useState({});
         <Product product={currentProduct} />
         <br />
         <NewReview product={currentProduct} addReview={addReview} user={user} />
-        <br />
         <ListedReviews reviews={reviews} />       
         </div>
     );

@@ -1,13 +1,14 @@
 const ListedReviews = ({reviews}) => {
 
     const reviewLis = reviews.map((review) => 
-    <li key={ review.id }>
-        {review.title} {review.rating}/5 
+    <ul className="listedReview" key={ review.id }>
+        <h3>{review.title} - {review.rating} ⭐'s  </h3>
         <br />
         { review.review }
         <br />
-        {review.created_at}  {review.user.username}
-        </li>)
+        <br />
+        by: {review.user.username}
+        </ul>)
 
     return ( 
         <ul>
@@ -17,3 +18,5 @@ const ListedReviews = ({reviews}) => {
 }
  
 export default ListedReviews;
+
+// {review.created_at} 

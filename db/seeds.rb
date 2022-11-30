@@ -25,6 +25,11 @@ product4 = Product.create(name: "Obagi Medical Professional-C Serum 20% (1 fl. o
 product5 = Product.create(name: "Paula's Choice CLINICAL Niacinamide 20 Treatment (0.67 fl. oz.)", description: "Achieve a smoother and more radiant complexion with CLINICAL Niacinamide 20% Treatment from Paula's Choice. This advanced, concentrated serum helps to tighten and minimize the appearance of pores and rough bumps caused by age or sun damage. Niacinamide normalizes pore function and protects from further stretching when exposed to damaging UV light, resulting in improved radiance and texture.", price: "52.0", image_url: "https://static.thcdn.com/images/large/webp//productimg/1600/1600/12902766-1164909089232656.jpg", category: "skincare")
 
 review1 = Review.create(title: "LOVED", review: "This is my fave product", rating: 5, product_id: product1.id, user_id: 1)
+review2 = Review.create(title: "Not worth the $", review: "This was ok, i noticed a small difference but not enough for the price", rating: 3, product_id: product2.id, user_id: 2)
+review3 = Review.create(title: "Staple my skin routine", review: "I love this product, really makes my skin glow!", rating: 5, product_id: product3.id, user_id: 5)
+review4 = Review.create(title: "Good but feels excessive", review: "I liked this but i dont reach for it very often", rating: 4, product_id: product4.id, user_id: 1)
+review4 = Review.create(title: "Best Moisturizer", review: "This is my fave product. Love this moisturizer and use it every day!", rating: 5, product_id: product5.id, user_id: 2)
+
 # 50.times do 
 #     Product.create(
 #       name: Faker::Commerce.product_name,
