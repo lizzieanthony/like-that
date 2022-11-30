@@ -154,3 +154,14 @@ div.productpreview img {
   border-bottom-width: thin;
   max-width: 450px;
 }
+
+.listedReview button{
+  float: right
+}
+
+.reviewTitle {
+  clear: left;
+  padding: 10px 16px;
+  margin: 40px ;
+  max-width: 450px;
+}

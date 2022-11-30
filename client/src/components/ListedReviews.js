@@ -1,22 +1,42 @@
-const ListedReviews = ({reviews}) => {
+import React from 'react';
 
-    const reviewLis = reviews.map((review) => 
+
+const ListedReviews = ({reviews, user}) => {
+
+    const usersReview = reviews.find(review => user.id === review.user_id)
+
+    const reviewList = reviews.map((review) => 
     <ul className="listedReview" key={ review.id }>
         <h3>{review.title} - {review.rating} ⭐'s  </h3>
         <br />
         { review.review }
         <br />
         <br />
-        by: {review.user.username} {review.date}
+        by: {review.user.username} {review.date} 
+        {usersReview ? <React.Fragment>
+            <button>Delete</button>
+            <button>Edit</button>
+            </React.Fragment> : (
+                null
+            )}  
+        <br />
         </ul>)
+
+        console.log(reviews)
 
     return ( 
         <ul>
-        {reviewLis} 
+        {reviewList} 
         </ul>
      );
 }
  
 export default ListedReviews;
 
-// {review.created_at} 
+// {user ? <React.Fragment>
+//     <button>Delete</button>
+//     <button>Edit</button>
+// </React.Fragment> : (
+//     null
+// )}
+

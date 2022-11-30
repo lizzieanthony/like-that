@@ -4,12 +4,12 @@ import Product from "./Product";
 import NewReview from "./NewReview"
 import ListedReviews from "./ListedReviews";
 
-const ProductDetails = () => {
+const ProductDetails = ({user}) => {
 
 const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState("");
 const [reviews, setReviews] = useState([])
-const [user, setUser] = useState({});
+// const [user, setUser] = useState({});
 
     useEffect(() => {
         fetch(`/products/${id}`)
@@ -34,12 +34,16 @@ const [user, setUser] = useState({});
         setReviews([...reviews, review])
       }
 
+    //   console.log(user)
+
+
     return (  
         <div>
         <Product product={currentProduct} />
         <br />
+        <h3 className="reviewTitle">User Reviews: </h3>
         <NewReview product={currentProduct} addReview={addReview} user={user} />
-        <ListedReviews reviews={reviews} />       
+        <ListedReviews reviews={reviews} user={user}  />       
         </div>
     );
 }

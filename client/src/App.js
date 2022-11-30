@@ -3,13 +3,14 @@ import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import NewProduct from './components/NewProduct';
 import {  BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {useState, useEffect} from "react";
 
 
 function App() {
   const [products, setProducts] = useState([])
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({products:[], reviews: []})
     
   useEffect(() => {
     fetch('/me').then((r) => {
@@ -26,11 +27,13 @@ function App() {
         
     }, []);
 
-    console.log(products)
+    // console.log(products)
 
     const onNewUser = (newUser) => {
       setUser(newUser)
     }
+
+    // console.log(user)
     
   return (
       <Router>
@@ -40,6 +43,7 @@ function App() {
           <Route path="products/:id" element={<ProductDetails user={user}/>} />
           <Route path="/login" element={<Login setUser={setUser} />}/>
           <Route path="/signup" element={<Signup onNewUser={onNewUser} />}/>
+          <Route path="/new" element={<NewProduct user={user} />}/>
         </Routes>
       </Router>
     
