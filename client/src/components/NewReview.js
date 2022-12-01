@@ -9,6 +9,8 @@ const NewReview = ({user, reviews, setReviews}) => {
     const [review, setReview] = useState("")
     const { id } = useParams()
     const numbersArray = [...Array(5).keys()]
+    const [errors, setErrors] = useState([]);
+
 
     const handleSubmitReview = (e) => {
       e.preventDefault()
@@ -28,6 +30,8 @@ const NewReview = ({user, reviews, setReviews}) => {
             setReviews(updatedReviews)
           })
           setShowForm(false)
+        } else {
+          r.json().then((err) => setErrors(err.errors));
         }
       })
     }
@@ -65,8 +69,15 @@ const NewReview = ({user, reviews, setReviews}) => {
             })}
             </select>
         </div>
-        <button onClick={handleSubmitReview}> post review</button>
+        <button type="submit" onClick={handleSubmitReview}> post review</button>
         <button onClick={() => setShowForm(false)}>cancel</button>
+        <br />
+        <br />
+        <div>
+        {errors.map((err) => (
+          <p key={err}>{err}</p>
+        ))}
+        </div>
         </form>
         ) : (<button onClick={() => setShowForm(true)} type="submit" >Add a Review </button>
     )}

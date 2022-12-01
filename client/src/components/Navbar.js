@@ -21,8 +21,8 @@ const Navbar = ({user, setUser}) => {
             <div>
             <h1>Welcome {user.first_name}!</h1>
             <button onClick={handleLogoutClick}>Logout</button>
-            <Link >
-            <button to="/new">Add Products</button>
+            <Link to="/new">
+            <button >Add Products</button>
             </Link>
            
             </div>

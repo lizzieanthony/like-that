@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 
 const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) => {
+    const [rateProduct, setRateProduct] = useState(0)
+    const [newReview, setNewReview] = useState("")
 
     const usersReview = user ? reviews.find(review => user.id === review.user_id) : undefined
 
@@ -19,6 +21,22 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
         })
     }
 
+    const handleUpdate = () => {
+        const addReview = {review: newReview, rating: rateProduct}
+        fetch(`/reviews/${usersReview.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify(addReview)
+        })
+        .then(r => r.json())
+        .then(newReview => {
+            const updatedReview = reviews.map(review => review.id === newReview.id ? newReview : review)
+            setReviews(updatedReview)
+        })
+    }
+
     const reviewList = reviews.map((review) => 
     <ul className="listedReview" key={ review.id }>
         <h3>{review.title} - {review.rating} ⭐'s  </h3>
@@ -31,7 +49,7 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
             <button onClick={handleDelete}>Delete</button>
             <button>Edit</button>
             </React.Fragment> : (
-                undefined
+                null
             )}  
         <br />
         </ul>)
