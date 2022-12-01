@@ -3,7 +3,7 @@ import React from 'react';
 
 const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) => {
 
-    const usersReview = reviews.find(review => user.id === review.user_id)
+    const usersReview = user ? reviews.find(review => user.id === review.user_id) : undefined
 
     const handleDelete = () => {
         fetch(`/reviews/${usersReview.id}`, {
@@ -37,6 +37,8 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
         </ul>)
 
         // console.log(user)
+        // console.log(reviews)
+
 
     return ( 
         <ul>

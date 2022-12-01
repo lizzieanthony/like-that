@@ -44,7 +44,7 @@ const [reviews, setReviews] = useState([])
         <Product product={currentProduct} />
         <br />
         <h3 className="reviewTitle">User Reviews: </h3>
-        <NewReview product={currentProduct} addReview={addReview} user={user} />
+        <NewReview product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
         <ListedReviews reviews={reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview}  />       
         </div>
     );

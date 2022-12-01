@@ -2,18 +2,16 @@ import React, {useState} from 'react';
 import { useParams } from 'react-router-dom';
 
 
-const NewReview = ({user}) => {
+const NewReview = ({user, reviews, setReviews}) => {
     const [showForm, setShowForm] = useState(false)
-    const [product, setProduct] = useState({ reviews: [] })
+    // const [product, setProduct] = useState({ reviews: [], users: [] })
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
     const [review, setReview] = useState("")
     const { id } = useParams()
-    const [newReview, setNewReview] = useState("")
-    const {reviews, users, name, desctiption, image_url, price  } = product
+    
+    // const { users } = product
     const numbersArray = [...Array(5).keys()]
-
-   
 
 
     const handleSubmitReview = (e) => {
@@ -29,10 +27,11 @@ const NewReview = ({user}) => {
       .then (r => {
         if (r.ok) {
           r.json()
-          .then(NewReview => {
-            setProduct({...product, reviews: [...reviews, newReview], users: [...users, newReview.user]})
+          .then(newReview => {
+            const updatedReviews = [...reviews, newReview]
+            setReviews(updatedReviews)
           })
-          setNewReview("")
+          
         }
       })
     }
@@ -70,7 +69,7 @@ const NewReview = ({user}) => {
             })}
             </select>
         </div>
-        <button type="submit"> post review</button>
+        <button onClick={handleSubmitReview}> post review</button>
         <button onClick={() => setShowForm(false)}>cancel</button>
         </form>
         ) : (<button onClick={() => setShowForm(true)} type="submit">Add Review </button>
@@ -101,3 +100,6 @@ export default NewReview;
 
 // <input onClick={() => setShowForm(true)} type="submit"value="Add Review" />
 
+// users: [...users, newReview.user]
+
+// setProduct({...product, reviews: [...reviews, newReview], users: [...users, newReview.user]})
