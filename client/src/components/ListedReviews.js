@@ -1,9 +1,23 @@
 import React from 'react';
 
 
-const ListedReviews = ({reviews, user}) => {
+const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) => {
 
     const usersReview = reviews.find(review => user.id === review.user_id)
+
+    const handleDelete = () => {
+        fetch(`/reviews/${usersReview.id}`, {
+            method: "DELETE"
+        })
+        .then(r => {
+            if (r.ok) {
+                const updatedReviews = reviews.filter(review => review.id !== usersReview.id)
+                const updatedProduct = products.filter(p => p.id !== products.id)
+                setReviews(updatedReviews)
+                onDeleteReview(updatedProduct)
+            }
+        })
+    }
 
     const reviewList = reviews.map((review) => 
     <ul className="listedReview" key={ review.id }>
@@ -14,7 +28,7 @@ const ListedReviews = ({reviews, user}) => {
         <br />
         by: {review.user.username} {review.date} 
         {usersReview ? <React.Fragment>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
             <button>Edit</button>
             </React.Fragment> : (
                 null

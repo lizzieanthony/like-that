@@ -65,7 +65,6 @@ const NewReview = ({user}) => {
           <select 
             value={rating}
             onChange={(e) => setRating(e.target.value)}>
-            {<option value={rating}> </option>}
             {numbersArray.map((num) => {
               return <option key={num} value={num +1}> {num +1}</option>
             })}
@@ -101,3 +100,4 @@ export default NewReview;
 //   onChange={(e) => setRating(e.target.value)} />
 
 // <input onClick={() => setShowForm(true)} type="submit"value="Add Review" />
+

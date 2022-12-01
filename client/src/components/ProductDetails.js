@@ -4,7 +4,7 @@ import Product from "./Product";
 import NewReview from "./NewReview"
 import ListedReviews from "./ListedReviews";
 
-const ProductDetails = ({user}) => {
+const ProductDetails = ({user, setUser, products}) => {
 
 const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState("");
@@ -34,7 +34,9 @@ const [reviews, setReviews] = useState([])
         setReviews([...reviews, review])
       }
 
-    //   console.log(user)
+    const onDeleteReview = (newProductArray) => {
+        setUser({...user, products: newProductArray})
+    }
 
 
     return (  
@@ -43,7 +45,7 @@ const [reviews, setReviews] = useState([])
         <br />
         <h3 className="reviewTitle">User Reviews: </h3>
         <NewReview product={currentProduct} addReview={addReview} user={user} />
-        <ListedReviews reviews={reviews} user={user}  />       
+        <ListedReviews reviews={reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview}  />       
         </div>
     );
 }
