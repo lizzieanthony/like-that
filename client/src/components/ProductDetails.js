@@ -20,7 +20,7 @@ const [reviews, setReviews] = useState([])
         loadReviews();
     }, [id])
 
-    console.log(currentProduct)
+    // console.log(currentProduct)
 
     const loadReviews = () => {
         fetch(`/products/${id}/reviews`)

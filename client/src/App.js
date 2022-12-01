@@ -10,7 +10,7 @@ import {useState, useEffect} from "react";
 
 function App() {
   const [products, setProducts] = useState([])
-  const [user, setUser] = useState({products:[], reviews: []})
+  const [user, setUser] = useState(null)
     
   useEffect(() => {
     fetch('/me').then((r) => {
@@ -27,7 +27,7 @@ function App() {
         
     }, []);
 
-    // console.log(products)
+    console.log(products)
 
     const onNewUser = (newUser) => {
       setUser(newUser)

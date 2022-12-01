@@ -22,7 +22,7 @@ const ListedReviews = ({reviews, user}) => {
         <br />
         </ul>)
 
-        console.log(reviews)
+        // console.log(user)
 
     return ( 
         <ul>
