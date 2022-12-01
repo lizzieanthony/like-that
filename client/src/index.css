@@ -91,10 +91,8 @@ div.productpreview img {
   clear: left;
   padding: 10px 16px;
   margin: 40px ;
-  max-width: 450px;
-  
+  max-width: 450px; 
 }
-
 
 .newReview input {
   float: right;
@@ -114,6 +112,32 @@ div.productpreview img {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  background-color: #f6eeee;
+}
+
+.updateForm {
+  clear: left;
+  padding: 10px 10px;
+  max-width: 450px;
+}
+
+.updateForm input {
+  float: right;
+  font-size: 16px;
+  width: 100%;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  background-color: #f6eeee;
+}
+
+.updateForm select {
+  float: right;
+  font-size: 16px;
+  width: 100%;
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;

@@ -4,6 +4,13 @@ import React, {useState} from 'react';
 const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) => {
     const [rateProduct, setRateProduct] = useState(0)
     const [newReview, setNewReview] = useState("")
+    const [showForm, setShowForm] = useState(false)
+    const [rating, setRating] = useState(0)
+    const [title, setTitle] = useState("")
+    const [review, setReview] = useState("")
+    const numbersArray = [...Array(5).keys()]
+    const [errors, setErrors] = useState([]);
+
 
     const usersReview = user ? reviews.find(review => user.id === review.user_id) : undefined
 
@@ -44,19 +51,59 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
         { review.review }
         <br />
         <br />
-        by: {review.user.username} {review.date} 
+        by: {review.user.username} {review.date}      
+        <div className='updateForm'>
         {usersReview ? <React.Fragment>
             <button onClick={handleDelete}>Delete</button>
-            <button>Edit</button>
+            <React.Fragment>
+              {showForm ?  (
+                <form onSubmit={handleUpdate}>
+                <div>
+                  <label>Title:</label>
+                  <input 
+                    type="text"
+                    required 
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)} />
+                </div>
+                <div>
+                  <label>Review:</label>
+                  <input 
+                    type="text"
+                    required 
+                    value={review}
+                    onChange={(e) => setReview(e.target.value)} />
+                </div>
+                <div>
+                  <label>how many ⭐'s ?</label>
+                  <select 
+                    value={rating}
+                    onChange={(e) => setRating(e.target.value)}>
+                    {numbersArray.map((num) => {
+                      return <option key={num} value={num +1}> {num +1}</option>
+                    })}
+                    </select>
+                </div>
+                <button type="submit" onClick={handleUpdate}> save review</button>
+                <button onClick={() => setShowForm(false)}>cancel</button>
+                <br />
+                <br />
+                <div>
+                {errors.map((err) => (
+                  <p key={err}>{err}</p>
+                ))}
+                </div>
+                </form>
+                ) : (
+                <button onClick={() => setShowForm(true)}>Edit</button>
+                )} 
+            </React.Fragment>
             </React.Fragment> : (
                 null
             )}  
-        <br />
+            </div>
+            <br />
         </ul>)
-
-        // console.log(user)
-        // console.log(reviews)
-
 
     return ( 
         <ul>
