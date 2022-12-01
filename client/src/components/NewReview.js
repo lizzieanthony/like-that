@@ -1,18 +1,14 @@
 import React, {useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 
 const NewReview = ({user, reviews, setReviews}) => {
     const [showForm, setShowForm] = useState(false)
-    // const [product, setProduct] = useState({ reviews: [], users: [] })
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
     const [review, setReview] = useState("")
     const { id } = useParams()
-    
-    // const { users } = product
     const numbersArray = [...Array(5).keys()]
-
 
     const handleSubmitReview = (e) => {
       e.preventDefault()
@@ -31,7 +27,7 @@ const NewReview = ({user, reviews, setReviews}) => {
             const updatedReviews = [...reviews, newReview]
             setReviews(updatedReviews)
           })
-          
+          setShowForm(false)
         }
       })
     }
@@ -72,12 +68,14 @@ const NewReview = ({user, reviews, setReviews}) => {
         <button onClick={handleSubmitReview}> post review</button>
         <button onClick={() => setShowForm(false)}>cancel</button>
         </form>
-        ) : (<button onClick={() => setShowForm(true)} type="submit">Add Review </button>
+        ) : (<button onClick={() => setShowForm(true)} type="submit" >Add a Review </button>
     )}
       </React.Fragment>
       </React.Fragment> : (
         <React.Fragment>
+        <Link to="/login">
         <button>login to review</button>
+        </Link>
         </React.Fragment>
       )}      
       </div>

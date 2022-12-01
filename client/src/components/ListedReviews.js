@@ -31,7 +31,7 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
             <button onClick={handleDelete}>Delete</button>
             <button>Edit</button>
             </React.Fragment> : (
-                null
+                undefined
             )}  
         <br />
         </ul>)
