@@ -39,29 +39,29 @@ const NewProduct = ({products, setProducts}) => {
     
     return ( 
         <div className="new">
-            <h2>Add a Product</h2>
+            <h2>Add your favorite skincare Product!</h2>
             <form onSubmit={handleSubmitProduct}>
-                <label>Name:</label>
+                <label>What's it called?</label>
                     <input 
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     />
-                <label>Description:</label>
+                <label>Tell us about it:</label>
                     <textarea
                     required
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     ></textarea>
-                <label>Image url:</label>
+                <label>drop the image link:</label>
                     <input 
                     type="text"
                     required
                     value={image_url}
                     onChange={(e) => setImage_url(e.target.value)}
                     />
-                    <label>Price:</label>
+                    <label>How much are we talkin?</label>
                 <input 
                     type="text"
                     required

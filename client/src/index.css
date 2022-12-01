@@ -145,7 +145,7 @@ div.productpreview img {
 }
 
 .new {
-  max-width: 300px;
+  max-width: 500px;
   margin: 150px auto;
   padding: 20px;
   text-align: center;
@@ -159,7 +159,6 @@ div.productpreview img {
 }
 .new h2 {
   font-size: 20px;
-  color: #f1356d;
   margin: 10px;
 }
 .new input, .new textarea {
@@ -171,25 +170,9 @@ div.productpreview img {
   box-sizing: border-box;
   display: block;
   background-color: #f6eeee;
-  color: #f1356d;
-}
-.new button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
-.input .newButton {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+
 
 .listedReview {
   padding: 10px 16px;

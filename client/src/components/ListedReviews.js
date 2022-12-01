@@ -7,7 +7,7 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
-    const [review, setReview] = useState("")
+    const [updatedReview, setUpdatedReview] = useState("")
     const numbersArray = [...Array(5).keys()]
     const [errors, setErrors] = useState([]);
 
@@ -71,8 +71,8 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
                   <input 
                     type="text"
                     required 
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)} />
+                    value={updatedReview}
+                    onChange={(e) => setUpdatedReview(e.target.value)} />
                 </div>
                 <div>
                   <label>how many ⭐'s ?</label>
