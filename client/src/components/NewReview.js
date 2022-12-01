@@ -11,6 +11,7 @@ const NewReview = ({user}) => {
     const { id } = useParams()
     const [newReview, setNewReview] = useState("")
     const {reviews, users, name, desctiption, image_url, price  } = product
+    const numbersArray = [...Array(5).keys()]
 
    
 
@@ -60,17 +61,20 @@ const NewReview = ({user}) => {
             onChange={(e) => setReview(e.target.value)} />
         </div>
         <div>
-          <label>Rating:</label>
-          <input 
-            type="text"
-            required 
+          <label>how many ⭐'s ?</label>
+          <select 
             value={rating}
-            onChange={(e) => setRating(e.target.value)} />
+            onChange={(e) => setRating(e.target.value)}>
+            {<option value={rating}> </option>}
+            {numbersArray.map((num) => {
+              return <option key={num} value={num +1}> {num +1}</option>
+            })}
+            </select>
         </div>
         <button type="submit"> post review</button>
         <button onClick={() => setShowForm(false)}>cancel</button>
         </form>
-        ) : (<input onClick={() => setShowForm(true)} type="submit"value="Add Review" />
+        ) : (<button onClick={() => setShowForm(true)} type="submit">Add Review </button>
     )}
       </React.Fragment>
       </React.Fragment> : (
@@ -88,3 +92,12 @@ export default NewReview;
 //             <label htmlFor="content">Content:</label>
 //           <input type="text" value={content} onChange={ (e) => setContent(e.target.value)} />
 //           </div>
+
+// <label>Rating out of 5:</label>
+// <input 
+//   type="text"
+//   required 
+//   value={rating}
+//   onChange={(e) => setRating(e.target.value)} />
+
+// <input onClick={() => setShowForm(true)} type="submit"value="Add Review" />
