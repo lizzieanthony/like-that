@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 
-const NewReview = ({user, reviews, setReviews}) => {
+const NewReview = ({user, reviews, setReviews, usersReview}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")

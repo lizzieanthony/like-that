@@ -9,7 +9,6 @@ const ProductDetails = ({user, setUser, products}) => {
 const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState("");
 const [reviews, setReviews] = useState([])
-// const [user, setUser] = useState({});
 
     useEffect(() => {
         fetch(`/products/${id}`)
@@ -19,8 +18,6 @@ const [reviews, setReviews] = useState([])
         });
         loadReviews();
     }, [id])
-
-    // console.log(currentProduct)
 
     const loadReviews = () => {
         fetch(`/products/${id}/reviews`)
@@ -38,14 +35,12 @@ const [reviews, setReviews] = useState([])
         setUser({...user, products: newProductArray})
     }
 
-
     return (  
         <div>
         <Product product={currentProduct} />
         <br />
         <h3 className="reviewTitle">User Reviews: </h3>
-        <NewReview product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
-        <ListedReviews reviews={reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview}  />       
+        <ListedReviews reviews={reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview} product={currentProduct} addReview={addReview} />       
         </div>
     );
 }

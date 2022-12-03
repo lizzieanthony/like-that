@@ -7,6 +7,7 @@ const ProductList = ({products}) => {
 
     return (  
        <div>
+       <br />
         {products.map((product) => (
             <div className="productpreview" key={product.id}>
             <Link to={`/products/${product.id}`}>

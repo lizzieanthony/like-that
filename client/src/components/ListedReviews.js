@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
+import NewReview from './NewReview';
 
 
-const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) => {
-    const [rateProduct, setRateProduct] = useState(0)
-    const [newReview, setNewReview] = useState("")
+const ListedReviews = ({currentProduct, addReview, reviews, user, products, setReviews, onDeleteReview}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
@@ -29,7 +28,7 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
     }
 
     const handleUpdate = () => {
-        const addReview = {review: newReview, rating: rateProduct}
+        const addReview = {review: updatedReview, rating: rating, title: title}
         fetch(`/reviews/${usersReview.id}`, {
             method: "PATCH",
             headers: {
@@ -84,7 +83,7 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
                     })}
                     </select>
                 </div>
-                <button type="submit" onClick={handleUpdate}> save review</button>
+                <button type="submit" > save review</button>
                 <button onClick={() => setShowForm(false)}>cancel</button>
                 <br />
                 <br />
@@ -106,9 +105,14 @@ const ListedReviews = ({reviews, user, products, setReviews, onDeleteReview}) =>
         </ul>)
 
     return ( 
+        <div>
+        <NewReview usersReview={usersReview} product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
         <ul>
         {reviewList} 
         </ul>
+        </div>
+
+       
      );
 }
  
