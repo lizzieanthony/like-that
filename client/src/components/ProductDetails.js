@@ -10,15 +10,6 @@ const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState("");
 const [reviews, setReviews] = useState([])
 
-    // useEffect(() => {
-    //     fetch(`/products/${id}`)
-    //     .then((r) => r.json())
-    //     .then((p) => {
-    //         setCurrentProduct(p)
-    //     });
-    //     loadReviews();
-    // }, [id])
-
     useEffect(() => {
         const singleProduct = products.find(obj => obj.id == id)
             setCurrentProduct(singleProduct)
