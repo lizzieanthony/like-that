@@ -27,7 +27,8 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
         })
     }
 
-    const handleUpdate = () => {
+    const handleUpdate = (e) => {
+        e.preventDefault()
         const addReview = {review: updatedReview, rating: rating, title: title}
         fetch(`/reviews/${usersReview.id}`, {
             method: "PATCH",
@@ -62,21 +63,21 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
                   <input 
                     type="text"
                     required 
-                    value={title}
+                    defaultValue={review.title}
                     onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div>
                   <label>Review:</label>
                   <input 
                     type="text"
+                    defaultValue={review.review}
                     required 
-                    value={updatedReview}
-                    onChange={(e) => setUpdatedReview(e.target.value)} />
+                    onChange={(e) => setUpdatedReview(e.target.value)} />                  
                 </div>
                 <div>
                   <label>how many ⭐'s ?</label>
                   <select 
-                    value={rating}
+                    defaultValue={review.rating}
                     onChange={(e) => setRating(e.target.value)}>
                     {numbersArray.map((num) => {
                       return <option key={num} value={num +1}> {num +1}</option>

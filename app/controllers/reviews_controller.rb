@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+before_action :authorize 
 
     def index
         if params[:product_id]
@@ -36,6 +37,10 @@ class ReviewsController < ApplicationController
 
     def review_params
         params.permit(:title, :review, :rating, :user_id, :product_id)
+    end
+
+    def authorize 
+        render json: { error: ["Must be logged in"] }, status: 401 unless session[:user_id]
     end
 
 end
