@@ -21,8 +21,10 @@ When a user reaches the site they will have full visibilty to the products and r
 
 - Ruby 2.7.4
 - NodeJS (v16), and npm
-- Render account
-- Postgresql
+
+## Contributors
+
+[Dermstore.com] (https://www.dermstore.com/skin-care.list?gclid=Cj0KCQiAgribBhDkARIsAASA5bs1MIJRyeZXPQYksr3WezxXav_bUcFiQFfRwFMqmtehECXUvFNhXuoaAga_EALw_wcB&gclsrc=aw.ds) for product images and descriptions 
 
 
 
