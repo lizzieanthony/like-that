@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :reviews
-  resources :users
+  resources :reviews, except: [:show]
+
+  resources :users, only: [:index, :show, :create]
+  
   resources :products, only: [:index, :show, :create] do 
     resources :reviews, only: [:index]
   end 

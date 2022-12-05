@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 
 const ProductList = ({products}) => {
     
-
     return (  
        <div>
        <br />

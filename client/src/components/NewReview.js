@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 
-const NewReview = ({user, reviews, setReviews, usersReview}) => {
+const NewReview = ({user, reviews, setReviews}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
@@ -10,7 +10,6 @@ const NewReview = ({user, reviews, setReviews, usersReview}) => {
     const { id } = useParams()
     const numbersArray = [...Array(5).keys()]
     const [errors, setErrors] = useState([]);
-
 
     const handleSubmitReview = (e) => {
       e.preventDefault()

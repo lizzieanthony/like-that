@@ -24,14 +24,10 @@ const Navbar = ({user, setUser}) => {
             <Link to="/new">
             <button >Add Products</button>
             </Link>
-           
             </div>
-        )}
-        
+        )} 
         </div>
-       
         </div>
-
     );
 }
  

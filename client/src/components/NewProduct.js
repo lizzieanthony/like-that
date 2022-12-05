@@ -35,8 +35,7 @@ const NewProduct = ({products, setProducts}) => {
         navigate(`/products/${newProduct.id}`);
     })
   }
-    
-    
+     
     return ( 
         <div className="new">
             <h2>Add your favorite skincare Product!</h2>

@@ -24,7 +24,7 @@ function App() {
         fetch('/products')
         .then((r) => r.json())
         .then(products => setProducts(products));
-        
+        console.log(products)
     }, []);
 
     console.log(products)

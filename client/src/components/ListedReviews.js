@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React, { useRef, useState} from 'react';
 import NewReview from './NewReview';
 
 
 const ListedReviews = ({currentProduct, addReview, reviews, user, products, setReviews, onDeleteReview}) => {
     const [showForm, setShowForm] = useState(false)
-    const [rating, setRating] = useState(0)
-    const [title, setTitle] = useState("")
-    const [updatedReview, setUpdatedReview] = useState("")
+    const [rating, setRating] = useState('')
+    const [title, setTitle] = useState('')
+    const [updatedReview, setUpdatedReview] = useState('')
     const numbersArray = [...Array(5).keys()]
     const [errors, setErrors] = useState([]);
+    const ref = useRef(null);
 
-
-    const usersReview = user ? reviews.find(review => user.id === review.user_id) : undefined
-
-    const handleDelete = () => {
+    console.log(reviews)
+    const usersReview = user ? reviews.find(review => user.id === review.user_detail.user_id) : undefined
+    // determines if edit and delete should be rendered 
+   
+const handleDelete = () => {
         fetch(`/reviews/${usersReview.id}`, {
             method: "DELETE"
         })
@@ -27,8 +29,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
         })
     }
 
-    const handleUpdate = (e) => {
-        e.preventDefault()
+    const handleUpdate = () => {
         const addReview = {review: updatedReview, rating: rating, title: title}
         fetch(`/reviews/${usersReview.id}`, {
             method: "PATCH",
@@ -51,7 +52,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
         { review.review }
         <br />
         <br />
-        by: {review.user.username} {review.date}      
+        by: {review.user_detail.username} {review.date}      
         <div className='updateForm'>
         {usersReview ? <React.Fragment>
             <button onClick={handleDelete}>Delete</button>
@@ -63,6 +64,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
                   <input 
                     type="text"
                     required 
+                    ref={ref}
                     defaultValue={review.title}
                     onChange={(e) => setTitle(e.target.value)} />
                 </div>
@@ -70,6 +72,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
                   <label>Review:</label>
                   <input 
                     type="text"
+                    ref={ref}
                     defaultValue={review.review}
                     required 
                     onChange={(e) => setUpdatedReview(e.target.value)} />                  
@@ -77,6 +80,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
                 <div>
                   <label>how many ⭐'s ?</label>
                   <select 
+                    ref={ref}
                     defaultValue={review.rating}
                     onChange={(e) => setRating(e.target.value)}>
                     {numbersArray.map((num) => {
@@ -107,7 +111,7 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
 
     return ( 
         <div>
-        <NewReview usersReview={usersReview} product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
+        <NewReview product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
         <ul>
         {reviewList} 
         </ul>
@@ -118,11 +122,4 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
 }
  
 export default ListedReviews;
-
-// {user ? <React.Fragment>
-//     <button>Delete</button>
-//     <button>Edit</button>
-// </React.Fragment> : (
-//     null
-// )}
 

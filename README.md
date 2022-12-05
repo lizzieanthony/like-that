@@ -4,6 +4,7 @@ Like That is an application designed for users to rate and review skincare produ
 Running the Application
 To run the backend of this application, run the following commands in a terminal: 
 - bundle install (to install dependencies) 
+- rails db:migrate (to migrate migrate database)
 - rails db:seed (to seed database) 
 - rails s (to run rails server)
 
@@ -24,7 +25,7 @@ When a user reaches the site they will have full visibilty to the products and r
 
 ## Contributors
 
-- [Dermstore.com](https://www.dermstore.com/skin-care.list?gclid=Cj0KCQiAgribBhDkARIsAASA5bs1MIJRyeZXPQYksr3WezxXav_bUcFiQFfRwFMqmtehECXUvFNhXuoaAga_EALw_wcB&gclsrc=aw.ds) for product images and descriptions 
+- [Dermstore.com](https://www.dermstore.com/skin-care.list?gclid=Cj0KCQiAgribBhDkARIsAASA5bs1MIJRyeZXPQYksr3WezxXav_bUcFiQFfRwFMqmtehECXUvFNhXuoaAga_EALw_wcB&gclsrc=aw.ds) for product images and information  
 
 
 

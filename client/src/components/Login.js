@@ -8,7 +8,6 @@ const Login = ({ setUser}) => {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
-
 function handleSubmit(e) {
     e.preventDefault()
     const user = {username: username, password: password}

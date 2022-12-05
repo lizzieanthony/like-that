@@ -11,7 +11,6 @@ const Signup = ({onNewUser}) => {
 
     function handleSubmit(event)  {
         event.preventDefault();
-        // debugger
         fetch("/signup", {
             method: "POST",
             headers: {
@@ -27,6 +26,7 @@ const Signup = ({onNewUser}) => {
             }
         })
     }
+
     return ( 
       <div className="new">
         <form onSubmit={handleSubmit}>
@@ -44,7 +44,6 @@ const Signup = ({onNewUser}) => {
            value={password}
            onChange={(e) => setPassword(e.target.value)}
          />
-
          <label>First Name:</label>
          <input
            type="text"

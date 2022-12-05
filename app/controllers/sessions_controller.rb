@@ -9,8 +9,8 @@ before_action :authorize, only: :destroy
             render json: @user, status: 201
         else 
             render json: { errors: ["Username or password did not match"]}, status: :unauthorized
-    end
-end  
+        end
+    end  
 
     def destroy
         session.delete :user_id 
