@@ -2,7 +2,7 @@ import React, { useRef, useState} from 'react';
 import NewReview from './NewReview';
 
 
-const ListedReviews = ({currentProduct, addReview, reviews, user, products, setReviews, onDeleteReview}) => {
+const ListedReviews = ({product, addReview, reviews, user, products, setReviews, onDeleteReview}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState('')
     const [title, setTitle] = useState('')
@@ -11,10 +11,12 @@ const ListedReviews = ({currentProduct, addReview, reviews, user, products, setR
     const [errors, setErrors] = useState([]);
     const ref = useRef(null);
 
-    console.log(reviews)
-    const usersReview = user ? reviews.find(review => user.id === review.user_detail.user_id) : undefined
+    console.log(product)
+    const usersReview = user ? reviews?.find(review => user.id === review.user_detail.user_id) : undefined
     // determines if edit and delete should be rendered 
    
+    console.log(usersReview)
+
 const handleDelete = () => {
         fetch(`/reviews/${usersReview.id}`, {
             method: "DELETE"
@@ -22,12 +24,15 @@ const handleDelete = () => {
         .then(r => {
             if (r.ok) {
                 const updatedReviews = reviews.filter(review => review.id !== usersReview.id)
-                const updatedProduct = products.filter(p => p.id !== products.id)
+                const updatedProduct = products.filter(p => p.id !== product.id)
                 setReviews(updatedReviews)
                 onDeleteReview(updatedProduct)
+                console.log(updatedProduct)
             }
         })
     }
+    console.log(reviews)
+    console.log(products)
 
     const handleUpdate = () => {
         const addReview = {review: updatedReview, rating: rating, title: title}
@@ -45,7 +50,7 @@ const handleDelete = () => {
         })
     }
 
-    const reviewList = reviews.map((review) => 
+    const reviewList = product?.reviews.map((review) => 
     <ul className="listedReview" key={ review.id }>
         <h3>{review.title} - {review.rating} ⭐'s  </h3>
         <br />
@@ -111,7 +116,7 @@ const handleDelete = () => {
 
     return ( 
         <div>
-        <NewReview product={currentProduct} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
+        <NewReview product={product} addReview={addReview} user={user} reviews={reviews} setReviews={setReviews} />
         <ul>
         {reviewList} 
         </ul>
@@ -123,3 +128,4 @@ const handleDelete = () => {
  
 export default ListedReviews;
 
+// usersReview.review_username === usersReview.user_detail.username

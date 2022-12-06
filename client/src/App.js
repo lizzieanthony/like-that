@@ -27,14 +27,11 @@ function App() {
         console.log(products)
     }, []);
 
-    console.log(products)
-
     const onNewUser = (newUser) => {
       setUser(newUser)
     }
 
-    // console.log(user)
-    
+    console.log(products)
   return (
       <Router>
       <Navbar user={user} setUser={setUser} />

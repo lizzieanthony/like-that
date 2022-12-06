@@ -12,10 +12,10 @@ const [reviews, setReviews] = useState([])
     useEffect(() => {
         const singleProduct = products.find(obj => obj.id == id)
             setCurrentProduct(singleProduct)
-            setReviews(currentProduct.reviews)
+            setReviews(currentProduct?.reviews)
         }, [products])
 
-        console.log(currentProduct.reviews)
+        console.log(currentProduct?.reviews)
 
     const addReview = (review) => {
         setReviews([...reviews, review])
@@ -30,8 +30,7 @@ const [reviews, setReviews] = useState([])
         <Product product={currentProduct}  />
         <br />
         <h3 className="reviewTitle">User Reviews: </h3>
-        <ListedReviews reviews={currentProduct.reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview} product={currentProduct} addReview={addReview} />  
-
+        <ListedReviews reviews={currentProduct?.reviews} setReviews={setReviews} user={user} products={products} onDeleteReview={onDeleteReview} product={currentProduct} addReview={addReview} />  
         </div>
     );
 }
