@@ -2,7 +2,7 @@ import React, { useRef, useState} from 'react';
 import NewReview from './NewReview';
 
 
-const ListedReviews = ({product, addReview, reviews, user, products, setReviews, onDeleteReview}) => {
+const ListedReviews = ({product, addReview, reviews, user, products, setReviews, editReview, onDeleteReview}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState('')
     const [title, setTitle] = useState('')
@@ -13,7 +13,6 @@ const ListedReviews = ({product, addReview, reviews, user, products, setReviews,
 
     console.log(product)
     const usersReview = user ? reviews?.find(review => user.id === review.user_detail.user_id) : undefined
-    // determines if edit and delete should be rendered 
    
     console.log(usersReview)
 
@@ -23,18 +22,13 @@ const handleDelete = () => {
         })
         .then(r => {
             if (r.ok) {
-                const updatedReviews = reviews.filter(review => review.id !== usersReview.id)
-                const updatedProduct = products.filter(p => p.id !== product.id)
-                setReviews(updatedReviews)
-                onDeleteReview(updatedProduct)
-                console.log(updatedProduct)
+                onDeleteReview(usersReview)
             }
         })
     }
-    console.log(reviews)
-    console.log(products)
 
-    const handleUpdate = () => {
+    const handleUpdate = (e) => {
+        e.preventDefault()
         const addReview = {review: updatedReview, rating: rating, title: title}
         fetch(`/reviews/${usersReview.id}`, {
             method: "PATCH",
@@ -44,10 +38,7 @@ const handleDelete = () => {
             body: JSON.stringify(addReview)
         })
         .then(r => r.json())
-        .then(newReview => {
-            const updatedReview = reviews.map(review => review.id === newReview.id ? newReview : review)
-            setReviews(updatedReview)
-        })
+        .then(editReview)
     }
 
     const reviewList = product?.reviews.map((review) => 
@@ -93,7 +84,7 @@ const handleDelete = () => {
                     })}
                     </select>
                 </div>
-                <button type="submit" > save review</button>
+                <button type="submit"> save review</button>
                 <button onClick={() => setShowForm(false)}>cancel</button>
                 <br />
                 <br />

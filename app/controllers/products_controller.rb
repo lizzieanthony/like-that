@@ -11,6 +11,17 @@ class ProductsController < ApplicationController
         render json: product, status: :created 
     end
 
+    def affordable
+        affordable = Product.where("price <= ? ", params[:price])
+        render json: affordable 
+    end
+
+    def priceRange
+        binding.pry
+        priceRange = Product.where("price >= ? AND price <= ?", params[:price], params[:price2])
+        render json: priceRange.pluck(:price)
+    end
+
     private
 
     def  product_params

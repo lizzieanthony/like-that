@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 
-const NewReview = ({user, reviews, setReviews}) => {
+const NewReview = ({user, reviews, setReviews, addReview}) => {
     const [showForm, setShowForm] = useState(false)
     const [rating, setRating] = useState(0)
     const [title, setTitle] = useState("")
@@ -24,10 +24,7 @@ const NewReview = ({user, reviews, setReviews}) => {
       .then (r => {
         if (r.ok) {
           r.json()
-          .then(newReview => {
-            const updatedReviews = [...reviews, newReview]
-            setReviews(updatedReviews)
-          })
+          .then(addReview)
           setShowForm(false)
         } else {
           r.json().then((err) => setErrors(err.errors));
