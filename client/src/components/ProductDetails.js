@@ -13,8 +13,6 @@ const [currentProduct, setCurrentProduct] = useState({reviews: []});
             setCurrentProduct(singleProduct)
         }, [products])
 
-        console.log(currentProduct?.reviews)
-
     const addReview = (review) => {
         const updatedReviewsArray = [...currentProduct.reviews, review]
         const updatedProduct = {...currentProduct, reviews: updatedReviewsArray}
@@ -28,8 +26,6 @@ const [currentProduct, setCurrentProduct] = useState({reviews: []});
         setUser({...user, products: updatedProductCollection})
         setCurrentProduct(updatedProduct)
       }
-
-      console.log(user)
 
       const editReview = (updatedReview) => {
         const updatedReviewCollection = currentProduct.reviews.map((review) => {
@@ -57,9 +53,6 @@ const [currentProduct, setCurrentProduct] = useState({reviews: []});
         setUser({...user, products: deleteReview})
         setCurrentProduct(updatedProduct)
     }
-
-    // needs to know what review to delete in here. pass review to delete instead of new product array   
-
 
     return (  
         <div>

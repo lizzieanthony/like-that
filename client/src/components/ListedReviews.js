@@ -11,7 +11,6 @@ const ListedReviews = ({product, addReview, reviews, user, products, setReviews,
     const [errors, setErrors] = useState([]);
     const ref = useRef(null);
 
-    console.log(product)
     const usersReview = user ? reviews?.find(review => user.id === review.user_detail.user_id) : undefined
    
     console.log(usersReview)

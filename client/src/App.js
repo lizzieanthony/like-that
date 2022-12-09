@@ -31,8 +31,7 @@ function App() {
       setUser(newUser)
     }
 
-    console.log(products)
-  return (
+    return (
       <Router>
       <Navbar user={user} setUser={setUser} />
         <Routes>
