@@ -36,7 +36,7 @@ function App() {
       <Navbar user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<ProductList products={products} />} /> 
-          <Route path="products/:id" element={<ProductDetails user={user} setUser={setUser} products={products}/>} />
+          <Route path="products/:id" element={<ProductDetails user={user} setUser={setUser} products={products} setProducts={setProducts}/>} />
           <Route path="/login" element={<Login setUser={setUser} />}/>
           <Route path="/signup" element={<Signup onNewUser={onNewUser} />}/>
           <Route path="/new" element={<NewProduct user={user} products={products} setProducts={setProducts} />}/>

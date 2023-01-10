@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Product from "./Product";
 import ListedReviews from "./ListedReviews";
 
-const ProductDetails = ({user, setUser, products}) => {
+const ProductDetails = ({user, setUser, products, setProducts}) => {
 
 const {id} = useParams();
 const [currentProduct, setCurrentProduct] = useState({reviews: []});
@@ -14,17 +14,12 @@ const [currentProduct, setCurrentProduct] = useState({reviews: []});
         }, [products])
 
     const addReview = (review) => {
-        const updatedReviewsArray = [...currentProduct.reviews, review]
-        const updatedProduct = {...currentProduct, reviews: updatedReviewsArray}
-        const updatedProductCollection = products.map((product) => {
-            if (currentProduct.id === product.id) {
-                return updatedProduct;
-            } else {
-                return product
-            }
-        })
-        setUser({...user, products: updatedProductCollection})
-        setCurrentProduct(updatedProduct)
+        const newReviews = [...currentProduct.reviews, review]
+        currentProduct.reviews = newReviews      
+        const filteredProducts = products.filter(prod => prod.id !== review.product_id)
+        const newProducts = [...filteredProducts, currentProduct]
+        setCurrentProduct(currentProduct)
+        setProducts(newProducts)
       }
 
       const editReview = (updatedReview) => {
@@ -66,3 +61,12 @@ const [currentProduct, setCurrentProduct] = useState({reviews: []});
  
 export default ProductDetails;
 
+ // const updatedProduct = {...currentProduct, reviews: updatedReviewsArray}
+        // const updatedProductCollection = products.map((product) => {
+        //     if (currentProduct.id === product.id) {
+        //         return updatedProduct;
+        //     } else {
+        //         return product
+        //     }
+        // })
+        // setUser({...user, products: updatedProductCollection})

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy" 
 
   get "affordable", to: "products#affordable"
-  get "priceRange", to: "products#priceRange"
+
   get "/priceRange/:price/:price2", to: "products#priceRange"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
